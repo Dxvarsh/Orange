@@ -24,7 +24,7 @@ const Form = ({ formMusicHandler }) => {
       <div className="mb-5">
         <label
           for="songName"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-orange-500"
         >
           Song Name
         </label>
@@ -43,7 +43,7 @@ const Form = ({ formMusicHandler }) => {
       <div className="mb-5">
         <label
           for="artistName"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-orange-500"
         >
           Artist
         </label>
@@ -62,7 +62,7 @@ const Form = ({ formMusicHandler }) => {
       <div className="mb-5">
         <label
           for="imgUrl"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-900 dark:text-orange-500"
         >
           Enter Image Url
         </label>
@@ -94,7 +94,7 @@ const Form = ({ formMusicHandler }) => {
         </div>
         <label
           for="remember"
-          className="ms-2 text-sm font-medium text-gray-900"
+          className="ms-2 text-sm font-medium text-gray-900 dark:text-orange-500"
         >
           Added to Favourite
         </label>

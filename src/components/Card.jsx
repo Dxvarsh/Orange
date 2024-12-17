@@ -5,7 +5,7 @@ const Card = ({ musicData, handleAddedToFav, index, removeSongData }) => {
   const { imageUrl, songName, artistName, addedToFav } = musicData;
 
   return (
-    <div className="mt-5 flex gap-3 relative items-center p-4 bg-white shadow-md hover:shadow-lg rounded-lg w-full transition-all">
+    <div className="mt-5 flex gap-3 relative items-center p-4 bg-white dark:bg-neutral-900 shadow-md hover:shadow-lg rounded-lg w-full transition-all">
       <img
         src={imageUrl}
         alt="Song Cover"
@@ -13,7 +13,7 @@ const Card = ({ musicData, handleAddedToFav, index, removeSongData }) => {
       />
 
       <div className="text-start mb-2">
-        <h3 className="text-md font-semibold text-gray-800 whitespace-nowrap">
+        <h3 className="text-md font-semibold text-gray-800 dark:text-orange-500 whitespace-nowrap">
           {songName}
         </h3>
         <p className="text-xs text-gray-500">{artistName}</p>
