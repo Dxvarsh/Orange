@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Card from "./components/Card";
 import Navbar from "./components/Navbar";
-import Form from "./components/Form";
 import { ThemeProvider } from "./contexts/Theme";
+import { MusicDataProvider } from "./contexts/MusicData";
+import Routing from "./utils/routes";
 
 const App = () => {
   const musicData = [
@@ -59,45 +59,29 @@ const App = () => {
     });
   };
 
-
-  const [theme, setTheme] = useState("light")
-
+  const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    document.querySelector('html').classList.remove("light", "dark")
-    document.querySelector('html').classList.add(theme)
-  }, [theme])
-  
+    document.querySelector("html").classList.remove("light", "dark");
+    document.querySelector("html").classList.add(theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light")
-  }
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
-    <ThemeProvider value={{ theme, toggleTheme }}>
-      <main className="min-h-screen w-full bg-white dark:bg-neutral-950">
-        {/* Navbar component */}
-        <Navbar musicData={realMusicData} />
-
-        <div className="container mx-auto p-4 min-h-full">
-          {/* Form */}
-          <Form formMusicHandler={formMusicHandler} />
-
-          {/* Card Component */}
-          <div className="mt-10 grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {realMusicData.map((data, index) => (
-              <Card
-                key={index}
-                index={index}
-                musicData={data}
-                removeSongData={removeSongData}
-                handleAddedToFav={handleAddedToFav}
-              />
-            ))}
+    <MusicDataProvider value={{ realMusicData, formMusicHandler, removeSongData, handleAddedToFav }}>
+      <ThemeProvider value={{ theme, toggleTheme }}>
+        <main className="min-h-screen w-full bg-white dark:bg-neutral-950">
+          {/* Navbar component */}
+          <Navbar musicData={realMusicData} />
+          <div className="container mx-auto p-4 min-h-full">
+            <Routing />
           </div>
-        </div>
-      </main>
-    </ThemeProvider>
+        </main>
+      </ThemeProvider>
+    </MusicDataProvider>
   );
 };
 

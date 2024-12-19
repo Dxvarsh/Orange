@@ -1,14 +1,12 @@
 import React from "react";
 import { FaRegStar } from "react-icons/fa";
-import useTheme from "../contexts/Theme";
 import ThemeBtn from "./ThemeBtn";
+import { NavLink } from "react-router-dom";
 
 const Navbar = ({ musicData }) => {
-  const { theme, toggleTheme } = useTheme();
-  
   return (
     <>
-      <nav className="p-4 pt-6 mx-auto border-b border-orange-500 w-full mb-4">
+      <nav className="p-4 pt-6 mx-auto border-b border-orange-500 w-full">
         <div className="top-nav flex justify-between mb-4">
           <h1 className="text-orange-500 font-bold md:text-3xl text-2xl font-sans">
             Orange
@@ -30,18 +28,46 @@ const Navbar = ({ musicData }) => {
         <hr className="border-b border-neutral-300 dark:border-neutral-800 mb-4" />
         <div className="bottom-nav flex items-center justify-center">
           <div className="flex gap-4 items-center">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-1 px-3 rounded-md text-xs">
+            <NavLink
+              to="/Orange/" end
+              className={({ isActive }) =>
+                `py-1 px-3 rounded-md text-xs font-semibold border ${
+                  isActive ? "bg-orange-500 text-white border-orange-500" : "bg-transparent text-orange-500 border-orange-500"
+                }`
+              }
+            >
               My Playlist
-            </button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-1 px-3 rounded-md text-xs">
+            </NavLink>
+            <NavLink
+              to="/Orange/genre"
+              className={({ isActive }) =>
+                `py-1 px-3 rounded-md text-xs font-semibold border ${
+                  isActive ? "bg-orange-500 text-white border-orange-500" : "bg-transparent text-orange-500 border-orange-500"
+                }`
+              }
+            >
               Genre
-            </button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-1 px-3 rounded-md text-xs">
+            </NavLink>
+            <NavLink
+              to="/Orange/artist"
+              className={({ isActive }) =>
+                `py-1 px-3 rounded-md text-xs font-semibold border ${
+                  isActive ? "bg-orange-500 text-white border-orange-500" : "bg-transparent text-orange-500 border-orange-500"
+                }`
+              }
+            >
               Artist
-            </button>
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-1 px-3 rounded-md text-xs">
+            </NavLink>
+            <NavLink
+              to="/Orange/addsong"
+              className={({ isActive }) =>
+                `py-1 px-3 rounded-md text-xs font-semibold border ${
+                  isActive ? "bg-orange-500 text-white border-orange-500" : "bg-transparent text-orange-500 border-orange-500"
+                }`
+              }
+            >
               Add Song
-            </button>
+            </NavLink>
           </div>
         </div>
       </nav>

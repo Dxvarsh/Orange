@@ -4,6 +4,8 @@ import { FaMoon, FaSun } from "react-icons/fa";
 
 const ThemeBtn = () => {
   const { theme, toggleTheme } = useTheme();
+  console.log(theme);
+  
   return (
     <label className="theme-switch-btn cursor-pointer flex items-center justify-center bg-gray-200 dark:bg-gray-700 w-8 h-8 rounded-full shadow-md hover:bg-gray-300 dark:hover:bg-gray-600 transition duration-300">
       <input
